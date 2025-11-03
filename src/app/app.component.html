@@ -5,6 +5,7 @@
       <li>
         <app-user 
           [user]="user"          
+          [isSelected]="selectedUserId === user.id"
           (select)="onSelectUser($event)"
           >
         </app-user>
@@ -12,6 +13,8 @@
     }
   </ul>
   @if (selectedUser) {
-    <app-tasks [name]="selectedUser.name" />
+    <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name" />
+  } @else {
+    <p>No user selected</p>
   }
 </main>
